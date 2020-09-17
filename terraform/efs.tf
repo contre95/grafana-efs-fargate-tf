@@ -9,31 +9,31 @@ resource "aws_efs_mount_target" "grafana-mount" {
   #tags = var.tags
 }
 
-resource "aws_efs_file_system_policy" "policy" {
-  file_system_id = aws_efs_file_system.grafana-efs.id
+#resource "aws_efs_file_system_policy" "policy" {
+  #file_system_id = aws_efs_file_system.grafana-efs.id
 
-  policy = <<POLICY
-{
-    "Version": "2012-10-17",
-    "Id": "ExamplePolicy01",
-    "Statement": [
-        {
-            "Sid": "ExampleSatement01",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": [
-                "elasticfilesystem:ClientMount",
-                "elasticfilesystem:ClientRootAccess",
-                "elasticfilesystem:ClientWrite"
-            ]
+  #policy = <<POLICY
+#{
+    #"Version": "2012-10-17",
+    #"Id": "ExamplePolicy01",
+    #"Statement": [
+        #{
+            #"Sid": "ExampleSatement01",
+            #"Effect": "Allow",
+            #"Principal": {
+                #"AWS": "*"
+            #},
+            #"Action": [
+                #"elasticfilesystem:ClientMount",
+                #"elasticfilesystem:ClientRootAccess",
+                #"elasticfilesystem:ClientWrite"
+            #]
             
-        }
-    ]
-}
-POLICY
-}
+        #}
+    #]
+#}
+#POLICY
+#}
 
 resource "aws_efs_access_point" "grafana-ap" {
   file_system_id = aws_efs_file_system.grafana-efs.id

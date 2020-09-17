@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "grafana-cloudsec" {
-  family                = "grafana-task"
+  family                = "Grafana-cluster"
   container_definitions = file("container-definitions/grafana.json")
   network_mode = "awsvpc"
   requires_compatibilities = ["FARGATE"]
@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "grafana-cloudsec" {
    name      = "grafana-efs"                                 
    efs_volume_configuration {                                
        file_system_id = aws_efs_file_system.grafana-efs.id   
-       root_directory = "/ecs/grafana"                       
+       root_directory = "/"                       
        transit_encryption = "ENABLED"                        
   			authorization_config {                               
         access_point_id = aws_efs_access_point.grafana-ap.id 
