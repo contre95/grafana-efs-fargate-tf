@@ -22,24 +22,18 @@ variable "tags" {
       "terraform" : "",
   }
 }
-
 variable "ecs-service" {
   default = {
-    "task-execution-role" = "arn:aws:iam::123456789:role/ecsTaskExecutionRole"
+    "task-execution-role" = "arn:aws:iam::1234567890:role/ecsTaskExecutionRole"
     "task-desire-count" = 1
   }
 }
-
-variable "efs" {
+variable "networking" {
   default = {
-    "subnet-id" = ""
-    "subnet-id2" = ""
+    "subnet_id" = ""
+    "subnet_id2" = ""
+    "vpc_id" = ""
+    "ingress_cidr_blocks" = []
   }
-}                           
-
-variable "sg" {
-  default = {
-    "vpc-id" = ""
-  }
-}                           
+}                    
 ```
