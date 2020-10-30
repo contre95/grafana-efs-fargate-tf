@@ -3,7 +3,7 @@
 ## Configurations
 ```shell
 cd terraform
-mv config.tf.example config.tf
+mv config.example.tf config.tf
 ```
 All configurations can now be setup from the `config.tf` file
 ```shell
